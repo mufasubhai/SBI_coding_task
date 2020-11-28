@@ -7,7 +7,7 @@ class AirTravelController < ApplicationController
 
 
     def show
-        @air_traavel = AirTravel.find_by(id: params[:id])
+        @air_travel = AirTravel.find_by(id: params[:id])
     end
 
     def create
