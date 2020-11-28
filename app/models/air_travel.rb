@@ -1,0 +1,3 @@
+class AirTravel < ApplicationRecord
+    
+end
