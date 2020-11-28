@@ -40,14 +40,14 @@ class AirTravelController < ApplicationController
         else
             render json: @comment.errors.full_messages, status: 422
         end
-        
+
     end
 
     private
 
     # strong params to allow updating
     def air_travel_params
-        params.require(:air_travel).permit(:area_code, :month, :pasengers. :sales)
+        params.require(:air_travel).permit(:area_code, :month, :passengers, :sales)
     end
 
 end
