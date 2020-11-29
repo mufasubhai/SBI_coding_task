@@ -5,7 +5,6 @@ import errorsReducer from './errors_reducer.js'
 const rootReducer = combineReducers({
     entities: entitiesReducer,
     errors: errorsReducer
-    
 });
 
 
