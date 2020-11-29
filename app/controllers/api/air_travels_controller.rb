@@ -1,4 +1,4 @@
-class AirTravelController < ApplicationController
+class Api::AirTravelsController < ApplicationController
 
     def index
         @air_travels = AirTravel.all
@@ -7,7 +7,7 @@ class AirTravelController < ApplicationController
 
 
     def show
-        @air_travel = AirTravel.find_by(id: params[:id])
+                @air_travels = AirTravel.all
     end
 
     def create

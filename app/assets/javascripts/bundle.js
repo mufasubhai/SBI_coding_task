@@ -144,7 +144,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAirTravel", function() { return createAirTravel; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateAirTravel", function() { return updateAirTravel; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAirTravel", function() { return deleteAirTravel; });
-/* harmony import */ var _util_air_travel_util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/air_travel_util.js */ "./util/air_travel_util.js");
+/* harmony import */ var _util_air_travel_api_util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/air_travel_api_util.js */ "./util/air_travel_api_util.js");
 
 var RECEIVE_AIR_TRAVELS = 'RECEIVE_AIR_TRAVELS';
 var RECEIVE_AIR_TRAVEL = "RECEIVE_AIR_TRAVEL";
@@ -188,7 +188,7 @@ var removeAirTravel = function removeAirTravel(airTravelId) {
 
 var fetchAirTravels = function fetchAirTravels() {
   return function (dispatch) {
-    return _util_air_travel_util_js__WEBPACK_IMPORTED_MODULE_0__["fetchAirTravels"]().then(function (airTravels) {
+    return _util_air_travel_api_util_js__WEBPACK_IMPORTED_MODULE_0__["fetchAirTravels"]().then(function (airTravels) {
       return dispatch(receiveAirTravels(airTravels));
     }, function (err) {
       return dispatch(receiveErrors(err.responseJSON));
@@ -197,7 +197,7 @@ var fetchAirTravels = function fetchAirTravels() {
 };
 var fetchAirTravel = function fetchAirTravel(airTravel) {
   return function (dispatch) {
-    return _util_air_travel_util_js__WEBPACK_IMPORTED_MODULE_0__["fetchAirTravel"](airTravel).then(function (airTravel) {
+    return _util_air_travel_api_util_js__WEBPACK_IMPORTED_MODULE_0__["fetchAirTravel"](airTravel).then(function (airTravel) {
       return dispatch(receiveAirTravel(airTravel));
     }, function (err) {
       return dispatch(receiveErrors(err.responseJSON));
@@ -206,7 +206,7 @@ var fetchAirTravel = function fetchAirTravel(airTravel) {
 };
 var createAirTravel = function createAirTravel(airTravel) {
   return function (dispatch) {
-    return _util_air_travel_util_js__WEBPACK_IMPORTED_MODULE_0__["createAirTravel"](airTravel).then(function (airTravel) {
+    return _util_air_travel_api_util_js__WEBPACK_IMPORTED_MODULE_0__["createAirTravel"](airTravel).then(function (airTravel) {
       return dispatch(receiveAirTravel(airTravel));
     }, function (err) {
       return dispatch(receiveErrors(err.responseJSON));
@@ -215,7 +215,7 @@ var createAirTravel = function createAirTravel(airTravel) {
 };
 var updateAirTravel = function updateAirTravel(airTravel) {
   return function (dispatch) {
-    return _util_air_travel_util_js__WEBPACK_IMPORTED_MODULE_0__["updateAirTravel"](airTravel).then(function (airTravel) {
+    return _util_air_travel_api_util_js__WEBPACK_IMPORTED_MODULE_0__["updateAirTravel"](airTravel).then(function (airTravel) {
       return dispatch(receiveAirTravel(airTravel));
     }, function (err) {
       return dispatch(receiveErrors(err.responseJSON));
@@ -224,7 +224,7 @@ var updateAirTravel = function updateAirTravel(airTravel) {
 };
 var deleteAirTravel = function deleteAirTravel(airTravelId) {
   return function (dispatch) {
-    return _util_air_travel_util_js__WEBPACK_IMPORTED_MODULE_0__["deleteAirTravel"](airTravelId).then(function () {
+    return _util_air_travel_api_util_js__WEBPACK_IMPORTED_MODULE_0__["deleteAirTravel"](airTravelId).then(function () {
       return dispatch(removeAirTravel(airTravelId));
     });
   };
@@ -48126,10 +48126,10 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
-/***/ "./util/air_travel_util.js":
-/*!*********************************!*\
-  !*** ./util/air_travel_util.js ***!
-  \*********************************/
+/***/ "./util/air_travel_api_util.js":
+/*!*************************************!*\
+  !*** ./util/air_travel_api_util.js ***!
+  \*************************************/
 /*! exports provided: fetchAirTravels, fetchAirTravel, createAirTravel, updateAirTravel, deleteAirTravel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -48144,6 +48144,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 var fetchAirTravels = function fetchAirTravels() {
+  debugger;
   return jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
     method: 'GET',
     url: '/api/air_travels'

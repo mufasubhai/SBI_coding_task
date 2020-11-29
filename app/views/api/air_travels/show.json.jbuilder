@@ -1,0 +1,1 @@
+json.partial! "api/air_travels/air_travel", air_travel: @air_travel

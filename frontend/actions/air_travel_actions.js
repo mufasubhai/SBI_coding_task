@@ -1,4 +1,4 @@
-import * as airTravelAPIUtil from '../util/air_travel_util.js'
+import * as airTravelAPIUtil from '../util/air_travel_api_util.js'
 
 export const RECEIVE_AIR_TRAVELS = 'RECEIVE_AIR_TRAVELS';
 export const RECEIVE_AIR_TRAVEL = "RECEIVE_AIR_TRAVEL";
@@ -15,10 +15,12 @@ export const clearErrors = () => ({
     type: CLEAR_ERRORS
 }) 
 
-const receiveAirTravels = airTravels => ({
-    type: RECEIVE_AIR_TRAVELS,
+const receiveAirTravels = airTravels => {
+    
+ return {   type: RECEIVE_AIR_TRAVELS,
     airTravels
-})
+     }
+}
 
 const receiveAirTravel = airTravel => ({
     type: RECEIVE_AIR_TRAVEL,

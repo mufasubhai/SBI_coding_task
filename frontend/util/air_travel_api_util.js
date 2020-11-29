@@ -1,16 +1,18 @@
 import $ from 'jquery';
 
-export const fetchAirTravels = () => (
-    $.ajax({
+export const fetchAirTravels = () => {
+    debugger
+    return $.ajax({
         method: 'GET',
-        url: '/api/air_travels',
+        url: 'api/air_travels',
     })
-)
+    
+}
 
 export const fetchAirTravel = id => (
     $.ajax({
         method: 'GET',
-        url: `/api/air_travels/${id}`
+        url: `api/air_travels/${id}`
     })
 )
 
@@ -18,7 +20,7 @@ export const createAirTravel = airTravel => {
     
  return   $.ajax({
         method: 'POST',
-        url: `/api/air_travels`,
+        url: `api/air_travels`,
         data: { airTravel }
     })
 }
@@ -26,7 +28,7 @@ export const createAirTravel = airTravel => {
 export const updateAirTravel = airTravel => (
     $.ajax({
         method: 'PATCH',
-        url: `/api/air_travels/${airTravel.id}`,
+        url: `api/air_travels/${airTravel.id}`,
         data: { airTravel }
     })
 )
@@ -34,7 +36,7 @@ export const updateAirTravel = airTravel => (
 export const deleteAirTravel = airTravelId => {
     return $.ajax({
         method: 'DELETE',
-        url: `/api/air_travels/${airTravelId}`,
+        url: `api/air_travels/${airTravelId}`,
         data: airTravelId
     })
 }
