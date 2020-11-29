@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Root from './root';
 import reportWebVitals from './reportWebVitals';
 import configureStore from './store/store'
 
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   ReactDOM.render(
     <React.StrictMode>
-      <App store={store}/>
+      <Root store={store}/>
     </React.StrictMode>,
     document.getElementById('root')
   );
