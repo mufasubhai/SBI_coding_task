@@ -8,6 +8,9 @@ class MainPage extends React.Component {
 
     }
 
+    componentDidMount() {
+        this.props.fetchAirTravels()
+    }
 
     render () {
         return (
