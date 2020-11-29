@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export const fetchAirTravels = () => (
     $.ajax({
         method: 'GET',

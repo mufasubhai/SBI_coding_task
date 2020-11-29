@@ -18,7 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('root')
   );
 
-  window.poop = console.log("poop")
+  window.poop = console.log("poop");
+  window.getState = store.getState
+  
+  console.log(store)
 
 
 })
