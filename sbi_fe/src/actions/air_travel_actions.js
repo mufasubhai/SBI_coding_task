@@ -15,52 +15,52 @@ export const clearErrors = () => ({
     type: CLEAR_ERRORS
 }) 
 
-const receiveTasks = airTravels => ({
+const receiveAirTravels = airTravels => ({
     type: RECEIVE_AIR_TRAVELS,
     airTravels
 })
 
-const receiveTask = airTravel => ({
+const receiveAirTravel = airTravel => ({
     type: RECEIVE_AIR_TRAVEL,
     airTravel
 })
 
-const removeTask = airTravelId => ({
+const removeAirTravel = airTravelId => ({
     type: REMOVE_AIR_TRAVEL,
     airTravelId
 })
 
-export const fetchTasks = () => dispatch => (
-    airTravelAPIUtil.fetchTasks()
-        .then(airTravels => (dispatch(receiveTasks(airTravels))
+export const fetchAirTravels = () => dispatch => (
+    airTravelAPIUtil.fetchAirTravels()
+        .then(airTravels => (dispatch(receiveAirTravels(airTravels))
         ), err => (
             dispatch(receiveErrors(err.responseJSON))
         ))
 )
 
-export const fetchTask = airTravel => dispatch => (
-    airTravelAPIUtil.fetchTask(airTravel)
-        .then(airTravel => (dispatch(receiveTask(airTravel))
+export const fetchAirTravel = airTravel => dispatch => (
+    airTravelAPIUtil.fetchAirTravel(airTravel)
+        .then(airTravel => (dispatch(receiveAirTravel(airTravel))
         ), err => (
             dispatch(receiveErrors(err.responseJSON))
         ))
 )
 
-export const createTask = airTravel => dispatch => (
-    airTravelAPIUtil.createTask(airTravel)
-        .then(airTravel => (dispatch(receiveTask(airTravel))
+export const createAirTravel = airTravel => dispatch => (
+    airTravelAPIUtil.createAirTravel(airTravel)
+        .then(airTravel => (dispatch(receiveAirTravel(airTravel))
         ), err => (
             dispatch(receiveErrors(err.responseJSON))
         ))
 )
-export const updateTask = airTravel => dispatch => (
-    airTravelAPIUtil.updateTask(airTravel)
-        .then(airTravel => (dispatch(receiveTask(airTravel))
+export const updateAirTravel = airTravel => dispatch => (
+    airTravelAPIUtil.updateAirTravel(airTravel)
+        .then(airTravel => (dispatch(receiveAirTravel(airTravel))
         ), err => (
             dispatch(receiveErrors(err.responseJSON))
         ))
 )
-export const deleteTask = airTravelId => dispatch => (
-    airTravelAPIUtil.deleteTask(airTravelId)
-        .then(() => dispatch(removeTask(airTravelId)))
+export const deleteAirTravel = airTravelId => dispatch => (
+    airTravelAPIUtil.deleteAirTravel(airTravelId)
+        .then(() => dispatch(removeAirTravel(airTravelId)))
 )

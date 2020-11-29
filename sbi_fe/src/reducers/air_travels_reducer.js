@@ -2,9 +2,9 @@ import {
     RECEIVE_AIR_TRAVEL,
     RECEIVE_AIR_TRAVELS,
     REMOVE_AIR_TRAVEL
-} from '../actions/air_travels_actions.js'
+} from "../actions/air_travel_actions"
 
-const tasksReducer = (state = {}, action) => {
+const airTravelsReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_AIR_TRAVELS:
@@ -20,4 +20,4 @@ const tasksReducer = (state = {}, action) => {
     }
 }
 
-export default tasksReducer;
+export default airTravelsReducer;
