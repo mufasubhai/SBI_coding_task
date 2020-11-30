@@ -69,7 +69,7 @@ const Table = (props) => {
         }
 
 
-        const numberWithCommas =(x) => {
+    const numberWithCommas =(x) => {
         x = x.toString();
         var pattern = /(-?\d+)(\d{3})/;
         while (pattern.test(x))

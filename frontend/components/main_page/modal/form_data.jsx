@@ -28,6 +28,14 @@ const FormData = (props) => {
     12:"December",
     }
 
+
+    const numberWithCommas =(x) => {
+        x = x.toString();
+        var pattern = /(-?\d+)(\d{3})/;
+        while (pattern.test(x))
+            x = x.replace(pattern, "$1,$2");
+        return x;
+    }
   
     
  return   <div>
@@ -44,9 +52,9 @@ const FormData = (props) => {
             <li className="modal_items">
                
                 <td>{el.area_code}</td>
-                <td>{el.passengers}</td>
+                <td>{numberWithCommas(el.passengers)}</td>
                 <td>{months[el.month]}</td>
-                <td>${el.sales}</td>
+                <td>${numberWithCommas(el.sales)}</td>
 
             </li>
             ))
