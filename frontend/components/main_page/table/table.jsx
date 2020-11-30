@@ -140,9 +140,9 @@ const sortAverageSales = () => {
 return (
 
 
-<div>
-    <table>
-        <tbody>
+
+    <table className="main_table">
+        <tbody className="table_body">
         <tr>
             <th className="area" onClick={() => filterAreas()}>{currentArea}</th>
 
@@ -205,7 +205,7 @@ return (
     </table>
     
     
-</div>
+
 
 )
 }

@@ -18,12 +18,12 @@ function container() {
     
     return (
             <div className="main_page_container">
-                <span>
+                
                  {
                      container()
                  }
                     
-                </span>
+                
 
             </div>
         )

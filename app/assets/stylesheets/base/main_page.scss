@@ -1,0 +1,38 @@
+.main_page_container {
+    background: rgb(255, 176, 242);
+    height: 100vh;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+
+
+}
+
+td {
+    font-size: 12px;
+    font-weight: 300;
+    
+    padding: 5px;
+
+}
+
+th {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+th:hover {
+    cursor:pointer;
+
+}
+
+table {
+    border: 2px solid grey;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 1400px;
+    height: 300px;
+    display:flex;
+    justify-content: space-around;
+    justify-self: center;
+}
