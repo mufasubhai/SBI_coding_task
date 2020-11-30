@@ -1,6 +1,6 @@
 
 import React, {useState, useEffect} from 'react';
-import TableLI from './table_li';
+import TableLI from './table_li.jsx';
 
 let sortedPass = 1;
 let sortedPrice = 1;
@@ -128,7 +128,7 @@ return (
 
 
             {
-                monthNums.map(num => (<th scope="col" onClick={()=> modalActions(filterAirTravelsByMonth(monthNums[num-1]))}>{months[monthNums[num-1]]}</th>))
+                monthNums.map(num => (<th scope="col" key={num-1} onClick={()=> modalActions(filterAirTravelsByMonth(monthNums[num-1]))}>{months[monthNums[num-1]]}</th>))
                 
             }
 

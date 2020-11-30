@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import MainPage from "./main_page"
+import MainPage from "./main_page.jsx"
 import {fetchAirTravels, fetchAirTravel, createAirTravel, updateAirTravel, deleteAirTravel } from '../../actions/air_travel_actions'
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { closeModal } from '../../../actions/modal_actions.js';
 import { connect } from 'react-redux';
-import FormData from './form_data.js';
+import FormData from './form_data.jsx';
 
 
 

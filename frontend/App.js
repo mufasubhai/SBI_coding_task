@@ -1,6 +1,6 @@
 import React from "react";
 import {Route, Switch, Redirect } from 'react-router-dom';
-import Modal from "./components/main_page/modal/modal"
+import Modal from "./components/main_page/modal/modal.jsx"
 import { HashRouter } from 'react-router-dom';
 import MainPageContainer from './components/main_page/main_page_container'
 

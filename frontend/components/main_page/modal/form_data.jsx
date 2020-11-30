@@ -12,6 +12,7 @@ import { openModal, closeModal } from "../../../actions/modal_actions";
 
 const FormData = (props) => (
 
+
 <div>THIS IS THE FORM MODAL</div>
 )
     
@@ -24,6 +25,7 @@ const FormData = (props) => (
 
 const mSTP = (state) => ({
     airTravels: Object.values(state.entities.airTravels), 
+    currentAirTravels: Object.values(state.entites.currentAirTravels)
 });
 
 const mDTP = (dispatch) => ({

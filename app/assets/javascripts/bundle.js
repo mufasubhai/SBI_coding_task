@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _components_main_page_modal_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/main_page/modal/modal */ "./components/main_page/modal/modal.js");
+/* harmony import */ var _components_main_page_modal_modal_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/main_page/modal/modal.jsx */ "./components/main_page/modal/modal.jsx");
 /* harmony import */ var _components_main_page_main_page_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/main_page/main_page_container */ "./components/main_page/main_page_container.js");
 
 
@@ -109,7 +109,7 @@ __webpack_require__.r(__webpack_exports__);
 function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "App"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_main_page_modal_modal__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_main_page_modal_modal_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
     component: _components_main_page_main_page_container__WEBPACK_IMPORTED_MODULE_3__["default"]
@@ -286,10 +286,10 @@ var closeModal = function closeModal() {
 
 /***/ }),
 
-/***/ "./components/main_page/main_page.js":
-/*!*******************************************!*\
-  !*** ./components/main_page/main_page.js ***!
-  \*******************************************/
+/***/ "./components/main_page/main_page.jsx":
+/*!********************************************!*\
+  !*** ./components/main_page/main_page.jsx ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -351,7 +351,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _main_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main_page */ "./components/main_page/main_page.js");
+/* harmony import */ var _main_page_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main_page.jsx */ "./components/main_page/main_page.jsx");
 /* harmony import */ var _actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/air_travel_actions */ "./actions/air_travel_actions.js");
 
 
@@ -384,14 +384,14 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_main_page__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_main_page_jsx__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
-/***/ "./components/main_page/modal/form_data.js":
-/*!*************************************************!*\
-  !*** ./components/main_page/modal/form_data.js ***!
-  \*************************************************/
+/***/ "./components/main_page/modal/form_data.jsx":
+/*!**************************************************!*\
+  !*** ./components/main_page/modal/form_data.jsx ***!
+  \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -413,7 +413,8 @@ var FormData = function FormData(props) {
 
 var mSTP = function mSTP(state) {
   return {
-    airTravels: Object.values(state.entities.airTravels)
+    airTravels: Object.values(state.entities.airTravels),
+    currentAirTravels: Object.values(state.entites.currentAirTravels)
   };
 };
 
@@ -444,10 +445,10 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
-/***/ "./components/main_page/modal/modal.js":
-/*!*********************************************!*\
-  !*** ./components/main_page/modal/modal.js ***!
-  \*********************************************/
+/***/ "./components/main_page/modal/modal.jsx":
+/*!**********************************************!*\
+  !*** ./components/main_page/modal/modal.jsx ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -457,7 +458,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_modal_actions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../actions/modal_actions.js */ "./actions/modal_actions.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _form_data_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./form_data.js */ "./components/main_page/modal/form_data.js");
+/* harmony import */ var _form_data_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./form_data.jsx */ "./components/main_page/modal/form_data.jsx");
 
 
 
@@ -476,7 +477,7 @@ function Modal(_ref) {
 
   switch (modal) {
     case 'edit_form_data':
-      component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_form_data_js__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+      component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_form_data_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null);
       break;
 
     default:
@@ -512,10 +513,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
-/***/ "./components/main_page/table/table.js":
-/*!*********************************************!*\
-  !*** ./components/main_page/table/table.js ***!
-  \*********************************************/
+/***/ "./components/main_page/table/table.jsx":
+/*!**********************************************!*\
+  !*** ./components/main_page/table/table.jsx ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -523,7 +524,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _table_li__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./table_li */ "./components/main_page/table/table_li.js");
+/* harmony import */ var _table_li_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./table_li.jsx */ "./components/main_page/table/table_li.jsx");
 
 
 var sortedPass = 1;
@@ -660,6 +661,7 @@ var Table = function Table(props) {
   }, currentArea), monthNums.map(function (num) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "col",
+      key: num - 1,
       onClick: function onClick() {
         return modalActions(filterAirTravelsByMonth(monthNums[num - 1]));
       }
@@ -722,7 +724,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./table */ "./components/main_page/table/table.js");
+/* harmony import */ var _table_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./table.jsx */ "./components/main_page/table/table.jsx");
 /* harmony import */ var _actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/air_travel_actions */ "./actions/air_travel_actions.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../actions/modal_actions */ "./actions/modal_actions.js");
 /* harmony import */ var _actions_current_air_travel_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../actions/current_air_travel_actions */ "./actions/current_air_travel_actions.js");
@@ -765,14 +767,14 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_table__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_table_jsx__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
-/***/ "./components/main_page/table/table_li.js":
-/*!************************************************!*\
-  !*** ./components/main_page/table/table_li.js ***!
-  \************************************************/
+/***/ "./components/main_page/table/table_li.jsx":
+/*!*************************************************!*\
+  !*** ./components/main_page/table/table_li.jsx ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
