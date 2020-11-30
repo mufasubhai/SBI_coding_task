@@ -354,63 +354,79 @@ var Table = function Table(props) {
   //     [airTravel.area_code, airTravel.month, airTravel.passengers]
   // ))
   var filterArea = function filterArea(area) {
-    props.airTravel.filter(function (airTravel) {
+    props.airTravels.filter(function (airTravel) {
       return airTravel.area_code === area;
     });
   };
 
-  var averagePrice = function averagePrice(month) {};
+  var totalSales = function totalSales(month) {
+    return props.airTravels.filter(function (airTravel) {
+      return airTravel.month === month;
+    }).reduce(function (acc, airTravel) {
+      return acc + airTravel.sales;
+    }, 0);
+  };
 
   var totalPassengers = function totalPassengers(month) {
-    props.airTravel.filter(airTravel.month === month).reduce(function (acc, airTravel) {
+    return props.airTravels.filter(function (airTravel) {
+      return airTravel.month === month;
+    }).reduce(function (acc, airTravel) {
       return acc + airTravel.passengers;
     }, 0);
   };
 
+  var monthNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, "Month 1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+  }, "Month ", monthNums[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, "Month 2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+  }, "Month ", monthNums[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, "Month 3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+  }, "Month ", monthNums[2]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Month ", monthNums[3]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Month ", monthNums[4]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Month ", monthNums[5]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Month ", monthNums[6]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Month ", monthNums[7]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Month ", monthNums[8]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Month ", monthNums[9]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Month ", monthNums[10]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col"
+  }, "Month ", monthNums[11]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
   }, "Q1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, "Month 3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month 4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month 5"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
   }, "Q2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month 6"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month 7"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month 8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
   }, "Q3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
-  }, "Month 10"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month 11"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month 12"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Q4")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+  }, "Q4")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "row"
-  }, "Passenger Count")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+  }, "Passenger Count"), monthNums.map(function (num) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      className: "passenger_count"
+    }, totalPassengers(num));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "row"
-  }, "Total Sales")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+  }, "Total Sales"), monthNums.map(function (num) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      className: "sales_total"
+    }, totalSales(num));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "row"
-  }, "Average Ticket Price")), props.airTravels.map(function (airTravel) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_table_li__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      airTravel: airTravel,
-      key: airTravel.id
-    });
-  }))));
+  }, "Average Ticket Price"), monthNums.map(function (num) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      className: "ticket_price"
+    }, Math.floor(totalSales(num) / totalPassengers(num)));
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Table);
