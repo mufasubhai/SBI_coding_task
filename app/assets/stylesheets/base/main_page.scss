@@ -1,0 +1,45 @@
+.main_page_container {
+    background: white;
+    height: 100vh;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+
+
+}
+
+td {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 5px;
+
+}
+
+th {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+th:hover {
+    cursor:pointer;
+
+}
+
+table {
+    margin-top: 100px;
+    border: 1px solid 17668b;
+    padding: 30px;
+    background: #17668b;
+    width: 1400px;
+    height: 180px;
+    display:flex;
+    justify-content: space-around;
+    justify-self: center;
+    border-radius: 6px;
+    color: white;
+    font-family: lato;
+}
+.total {
+    font-weight: 450;
+    font-style: italic;
+}
