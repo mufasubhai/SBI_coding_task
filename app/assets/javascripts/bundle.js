@@ -234,6 +234,27 @@ var deleteAirTravel = function deleteAirTravel(airTravelId) {
 
 /***/ }),
 
+/***/ "./actions/current_air_travel_actions.js":
+/*!***********************************************!*\
+  !*** ./actions/current_air_travel_actions.js ***!
+  \***********************************************/
+/*! exports provided: SET_CURRENT_AIR_TRAVELS, setCurrentAirTravels */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_CURRENT_AIR_TRAVELS", function() { return SET_CURRENT_AIR_TRAVELS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setCurrentAirTravels", function() { return setCurrentAirTravels; });
+var SET_CURRENT_AIR_TRAVELS = "SET_CURRENT_AIR_TRAVELS";
+var setCurrentAirTravels = function setCurrentAirTravels(currentAirTravels) {
+  return {
+    type: SET_CURRENT_AIR_TRAVELS,
+    currentAirTravels: currentAirTravels
+  };
+};
+
+/***/ }),
+
 /***/ "./actions/modal_actions.js":
 /*!**********************************!*\
   !*** ./actions/modal_actions.js ***!
@@ -529,11 +550,18 @@ var months = {
 var monthNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 var Table = function Table(props) {
-  airTravels = props.airTravels; // let airTravel = props.airTravel.map(airTravel => (
+  airTravels = props.airTravels;
 
-  var modalOp = function modalOp() {}; //     [airTravel.area_code, airTravel.month, airTravel.passengers]
-  // ))
+  var modalActions = function modalActions(airTravelsFiltered) {
+    props.setCurrentAirTravels(airTravelsFiltered);
+    props.openModal('edit_form_data');
+  };
 
+  var filterAirTravelsByMonth = function filterAirTravelsByMonth(month) {
+    return airTravels.filter(function (airTravel) {
+      return airTravel.month === month;
+    });
+  };
 
   var totalSales = function totalSales(month) {
     return airTravels.filter(function (airTravel) {
@@ -633,7 +661,7 @@ var Table = function Table(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
       scope: "col",
       onClick: function onClick() {
-        return props.openModal('edit_form_data');
+        return modalActions(filterAirTravelsByMonth(monthNums[num - 1]));
       }
     }, months[monthNums[num - 1]]);
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
@@ -697,6 +725,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./table */ "./components/main_page/table/table.js");
 /* harmony import */ var _actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/air_travel_actions */ "./actions/air_travel_actions.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../actions/modal_actions */ "./actions/modal_actions.js");
+/* harmony import */ var _actions_current_air_travel_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../actions/current_air_travel_actions */ "./actions/current_air_travel_actions.js");
+
 
 
 
@@ -728,6 +758,9 @@ var mDTP = function mDTP(dispatch) {
     },
     openModal: function openModal(modal) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])(modal));
+    },
+    setCurrentAirTravels: function setCurrentAirTravels(airTravels) {
+      return dispatch(Object(_actions_current_air_travel_actions__WEBPACK_IMPORTED_MODULE_5__["setCurrentAirTravels"])(airTravels));
     }
   };
 };
@@ -48414,6 +48447,39 @@ var airTravelsReducer = function airTravelsReducer() {
 
 /***/ }),
 
+/***/ "./reducers/current_air_travels_reducer.js":
+/*!*************************************************!*\
+  !*** ./reducers/current_air_travels_reducer.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_current_air_travel_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/current_air_travel_actions */ "./actions/current_air_travel_actions.js");
+
+
+var currentAirTravelReducer = function currentAirTravelReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_current_air_travel_actions__WEBPACK_IMPORTED_MODULE_0__["SET_CURRENT_AIR_TRAVELS"]:
+      debugger;
+      return Object.assign({}, state, {
+        currentAirTravels: action.currentAirTravels
+      });
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (currentAirTravelReducer);
+
+/***/ }),
+
 /***/ "./reducers/entities_reducer.js":
 /*!**************************************!*\
   !*** ./reducers/entities_reducer.js ***!
@@ -48425,10 +48491,13 @@ var airTravelsReducer = function airTravelsReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _air_travels_reducer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./air_travels_reducer.js */ "./reducers/air_travels_reducer.js");
+/* harmony import */ var _current_air_travels_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./current_air_travels_reducer */ "./reducers/current_air_travels_reducer.js");
+
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  airTravels: _air_travels_reducer_js__WEBPACK_IMPORTED_MODULE_1__["default"]
+  airTravels: _air_travels_reducer_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  currentAirTravels: _current_air_travels_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Table from "./table"
 import {fetchAirTravels, fetchAirTravel, createAirTravel, updateAirTravel, deleteAirTravel } from '../../../actions/air_travel_actions'
 import {openModal} from '../../../actions/modal_actions'
-
+import { setCurrentAirTravels} from '../../../actions/current_air_travel_actions'
 
 
 const mSTP = state => ({
@@ -18,7 +18,7 @@ const mDTP = dispatch => ({
     deleteAirTravel: (airTravelId) => dispatch(deleteAirTravel(airTravelId)),
     updateAirTravel: (airTravelId) => dispatch(updateAirTravel(airTravelId)),
     openModal: (modal) => dispatch(openModal(modal)),
-   
+    setCurrentAirTravels: (airTravels) => dispatch(setCurrentAirTravels(airTravels))
 });
 
 

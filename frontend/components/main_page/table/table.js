@@ -28,13 +28,16 @@ let monthNums = [1,2,3,4,5,6,7,8,9,10,11,12]
 
 const Table = (props) => {
     airTravels = props.airTravels;
-    // let airTravel = props.airTravel.map(airTravel => (
         
-        const modalOp = () => {
-            
-        }
-//     [airTravel.area_code, airTravel.month, airTravel.passengers]
-// ))
+    const modalActions = (airTravelsFiltered) => {
+        props.setCurrentAirTravels(airTravelsFiltered);
+        props.openModal('edit_form_data');
+    }
+
+    const filterAirTravelsByMonth = (month) => (
+        airTravels.filter((airTravel) => (airTravel.month === month))
+    )
+
       const totalSales = (month) => {
           
           return airTravels.filter(airTravel => (airTravel.month === month))
@@ -125,7 +128,7 @@ return (
 
 
             {
-                monthNums.map(num => (<th scope="col" onClick={()=> props.openModal('edit_form_data')}>{months[monthNums[num-1]]}</th>))
+                monthNums.map(num => (<th scope="col" onClick={()=> modalActions(filterAirTravelsByMonth(monthNums[num-1]))}>{months[monthNums[num-1]]}</th>))
                 
             }
 
