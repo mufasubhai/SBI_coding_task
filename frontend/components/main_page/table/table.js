@@ -1,6 +1,8 @@
 
 import React, {useState, useEffect} from 'react';
 import TableLI from './table_li';
+let sorted = 1;
+let monthNums = [1,2,3,4,5,6,7,8,9,10,11,12]
 
 const Table = (props) => {
 // let airTravel = props.airTravel.map(airTravel => (
@@ -16,13 +18,31 @@ const totalSales = (month) => {
 };
 
 const totalPassengers = (month) => {
-    
     return props.airTravels.filter(airTravel => (airTravel.month === month))
         .reduce((acc, airTravel) => (acc + airTravel.passengers), 0)
 };
 
-let monthNums = [1,2,3,4,5,6,7,8,9,10,11,12]
+const averagePrice = (month) => {
+    return (totalPassengers(month)/totalSalesMonth).toFixed(2);
+}
 
+
+const sortTotalPassengers = () => {
+
+    
+    if (sorted === 1) {
+        
+        monthNums = monthNums.sort((a, b) => (totalPassengers(a) - totalPassengers(b)))
+        console.log(monthNums)
+        sorted = 2;
+    } else if (sorted === 2) {
+        monthNums = monthNums.sort((a, b) => (totalPassengers(b) - totalPassengers(a)))
+        sorted = 3;
+    } else {
+        monthNums = [1,2,3,4,5,6,7,8,9,10,11,12];
+        sorted = 1;
+    }
+}
 
 return (
 
@@ -56,7 +76,7 @@ return (
      
         </tr>
         <tr>
-            <th scope="row">Passenger Count</th>
+            <th className="sort_header" scope="row" onClick={() => sortTotalPassengers()}>Passenger Count</th>
             {
                 monthNums.map(num => (<td className="passenger_count">{totalPassengers(num)}</td>))
             }
@@ -72,7 +92,7 @@ return (
         <tr>
             <th scope="row">Average Ticket Price</th>
             {
-                monthNums.map( num => (<td className="ticket_price">{Math.floor(totalSales(num)/totalPassengers(num))}</td>))
+                monthNums.map( num => (<td className="ticket_price">{averagePrice(num)}</td>))
             }    
             </tr>
       {/* {

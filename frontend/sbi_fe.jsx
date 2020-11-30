@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.getState = store.getState
   
-  console.log(store)
-
+  
 
 })
 

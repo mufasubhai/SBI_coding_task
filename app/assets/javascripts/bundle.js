@@ -348,6 +348,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _table_li__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./table_li */ "./components/main_page/table/table_li.js");
 
 
+var sorted = 1;
+var monthNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 var Table = function Table(props) {
   // let airTravel = props.airTravel.map(airTravel => (
@@ -375,7 +377,28 @@ var Table = function Table(props) {
     }, 0);
   };
 
-  var monthNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  var averagePrice = function averagePrice(month) {
+    return (totalPassengers(month) / totalSalesMonth).toFixed(2);
+  };
+
+  var sortTotalPassengers = function sortTotalPassengers() {
+    if (sorted === 1) {
+      monthNums = monthNums.sort(function (a, b) {
+        return totalPassengers(a) - totalPassengers(b);
+      });
+      console.log(monthNums);
+      sorted = 2;
+    } else if (sorted === 2) {
+      monthNums = monthNums.sort(function (a, b) {
+        return totalPassengers(b) - totalPassengers(a);
+      });
+      sorted = 3;
+    } else {
+      monthNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+      sorted = 1;
+    }
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
   }, "Month ", monthNums[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
@@ -409,7 +432,11 @@ var Table = function Table(props) {
   }, "Q3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
   }, "Q4")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "row"
+    className: "sort_header",
+    scope: "row",
+    onClick: function onClick() {
+      return sortTotalPassengers();
+    }
   }, "Passenger Count"), monthNums.map(function (num) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "passenger_count"
@@ -425,7 +452,7 @@ var Table = function Table(props) {
   }, "Average Ticket Price"), monthNums.map(function (num) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "ticket_price"
-    }, Math.floor(totalSales(num) / totalPassengers(num)));
+    }, averagePrice(num));
   })))));
 };
 
@@ -48278,7 +48305,6 @@ document.addEventListener("DOMContentLoaded", function () {
     store: store
   })), document.getElementById('root'));
   window.getState = store.getState;
-  console.log(store);
 }); // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
@@ -48306,7 +48332,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer_js__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_2___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer_js__WEBPACK_IMPORTED_MODULE_3__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"]));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
