@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import MainPage from "./main_page"
-import {fetchAirTravels, fetchAirTravel, createAirTravel, updateAirTravel, deleteAirTravel } from '../../actions/air_travel_actions'
+import Table from "./table"
+import {fetchAirTravels, fetchAirTravel, createAirTravel, updateAirTravel, deleteAirTravel } from '../../../actions/air_travel_actions'
 
 
 
 const mSTP = state => ({
-  airTravels: Object.values(state.entities.airTravels)
+  airTravels: Array.from(Object.values(state.entities.airTravels))
 });
 
 
@@ -22,4 +22,4 @@ const mDTP = dispatch => ({
 
 
 
-export default connect(mSTP, mDTP)(MainPage)
+export default connect(mSTP, mDTP)(Table)

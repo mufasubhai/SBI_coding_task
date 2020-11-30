@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export const fetchAirTravels = () => {
-    debugger
+    
     return $.ajax({
         method: 'GET',
         url: 'api/air_travels',
