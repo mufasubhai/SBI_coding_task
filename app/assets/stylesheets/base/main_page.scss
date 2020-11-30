@@ -43,3 +43,10 @@ table {
     font-weight: 450;
     font-style: italic;
 }
+
+.modal_items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
