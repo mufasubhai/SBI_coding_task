@@ -23,7 +23,7 @@ const totalPassengers = (month) => {
 };
 
 const averagePrice = (month) => {
-    return (totalPassengers(month)/totalSalesMonth).toFixed(2);
+    return (totalSales(month)/totalPassengers(month)).toFixed(2);
 }
 
 
