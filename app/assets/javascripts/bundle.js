@@ -408,16 +408,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var FormData = function FormData(props) {
-  var placeHolder = function placeHolder() {
-    var placeHolder = [];
-    props.currentAirTravels.forEach(function (value) {
-      return placeHolder.push(value);
-    });
-    return placeHolder;
-  };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, Object.values(placeHolder()).map(function (element) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "test");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, props.currentAirTravels[0].map(function (el) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "test");
   })));
 };
 

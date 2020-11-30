@@ -14,19 +14,12 @@ import { openModal, closeModal } from "../../../actions/modal_actions";
 
 const FormData = (props) => {
     
-    const placeHolder = () => {
-        let placeHolder = [];
-        props.currentAirTravels.forEach(value => placeHolder.push(value));
-     
-        return placeHolder;
-    }
+  
     
  return   <div>
     <ul>
         {
-            Object.values(placeHolder()).map(element => (
-                <div>test</div>
-            ))
+            props.currentAirTravels[0].map(el => (<li>test</li>))
         }
     </ul>
 </div>
