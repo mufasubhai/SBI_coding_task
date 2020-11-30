@@ -400,48 +400,82 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/air_travel_actions */ "./actions/air_travel_actions.js");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/modal_actions */ "./actions/modal_actions.js");
+/* harmony import */ var _form_data_line_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form_data_line_item */ "./components/main_page/modal/form_data_line_item.jsx");
+/* harmony import */ var _actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/air_travel_actions */ "./actions/air_travel_actions.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../actions/modal_actions */ "./actions/modal_actions.js");
+
 
 
 
 
 
 var FormData = function FormData(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "THIS IS THE FORM MODAL");
+  var placeHolder = function placeHolder() {
+    var placeHolder = [];
+    props.currentAirTravels.forEach(function (value) {
+      return placeHolder.push(value);
+    });
+    return placeHolder;
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, Object.values(placeHolder()).map(function (element) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "test");
+  })));
 };
 
 var mSTP = function mSTP(state) {
   return {
     airTravels: Object.values(state.entities.airTravels),
-    currentAirTravels: Object.values(state.entites.currentAirTravels)
+    currentAirTravels: Object.values(state.entities.currentAirTravels)
   };
 };
 
 var mDTP = function mDTP(dispatch) {
   return {
     openModal: function openModal(modal) {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])(modal));
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])(modal));
     },
     closeModal: function closeModal() {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["closeModal"])());
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["closeModal"])());
     },
     updateAirTravel: function updateAirTravel(id) {
-      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_2__["updateAirTravel"])(id));
+      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_3__["updateAirTravel"])(id));
     },
     deleteAirTravel: function deleteAirTravel(id) {
-      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_2__["deleteAirTravel"])(id));
+      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_3__["deleteAirTravel"])(id));
     },
     fetchAirTravel: function fetchAirTravel(id) {
-      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_2__["fetchAirTravel"])(id));
+      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_3__["fetchAirTravel"])(id));
     },
     createAirTravel: function createAirTravel(airTravel) {
-      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_2__["createAirTravel"])(airTravel));
+      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_3__["createAirTravel"])(airTravel));
     }
   };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(FormData));
+
+/***/ }),
+
+/***/ "./components/main_page/modal/form_data_line_item.jsx":
+/*!************************************************************!*\
+  !*** ./components/main_page/modal/form_data_line_item.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var FormDataLineItem = function FormDataLineItem(props) {
+  // console.log(props.airTravel[1])
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "render");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FormDataLineItem);
 
 /***/ }),
 
@@ -572,6 +606,10 @@ var Table = function Table(props) {
     }, 0);
   };
 
+  var totalSalesQuarter = function totalSalesQuarter(m1, m2, m3) {
+    return totalSales(m1) + totalSales(m2) + totalSales(m3);
+  };
+
   var totalPassengers = function totalPassengers(month) {
     return airTravels.filter(function (airTravel) {
       return airTravel.month === month;
@@ -582,6 +620,25 @@ var Table = function Table(props) {
 
   var averagePrice = function averagePrice(month) {
     return (totalSales(month) / totalPassengers(month)).toFixed(2);
+  };
+
+  var averagePriceQuarter = function averagePriceQuarter(m1, m2, m3) {
+    return ((totalSales(m1) / totalPassengers(m1) + totalSales(m2) / totalPassengers(m2) + totalSales(m3) / totalPassengers(m3)) / 3).toFixed(2);
+  };
+
+  var passengerCountQuarter = function passengerCountQuarter(m1, m2, m3) {
+    return totalPassengers(m1) + totalPassengers(m2) + totalPassengers(m3);
+  };
+
+  var numberWithCommas = function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+
+    while (pattern.test(x)) {
+      x = x.replace(pattern, "$1,$2");
+    }
+
+    return x;
   }; // filter area function
 
 
@@ -684,8 +741,8 @@ var Table = function Table(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       key: num,
       className: "passenger_count"
-    }, totalPassengers(num));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    }, numberWithCommas(totalPassengers(num)));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, numberWithCommas(passengerCountQuarter(1, 2, 3))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, numberWithCommas(passengerCountQuarter(4, 5, 6))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, numberWithCommas(passengerCountQuarter(7, 8, 9))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, numberWithCommas(passengerCountQuarter(10, 11, 12)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "row",
     onClick: function onClick() {
       return sortAverageSales();
@@ -694,8 +751,8 @@ var Table = function Table(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       key: num,
       className: "sales_total"
-    }, totalSales(num));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    }, "$", numberWithCommas(totalSales(num)));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", numberWithCommas(totalSalesQuarter(1, 2, 3))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", numberWithCommas(totalSalesQuarter(4, 5, 6))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", numberWithCommas(totalSalesQuarter(7, 8, 9))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", numberWithCommas(totalSalesQuarter(10, 11, 12)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "row",
     onClick: function onClick() {
       return sortAverageTicketPrice();
@@ -704,8 +761,8 @@ var Table = function Table(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       key: num,
       className: "ticket_price"
-    }, averagePrice(num));
-  })))));
+    }, "$", averagePrice(num));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", averagePriceQuarter(1, 2, 3)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", averagePriceQuarter(4, 5, 6)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", averagePriceQuarter(7, 8, 9)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", averagePriceQuarter(10, 11, 12))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Table);
@@ -48468,7 +48525,6 @@ var currentAirTravelReducer = function currentAirTravelReducer() {
 
   switch (action.type) {
     case _actions_current_air_travel_actions__WEBPACK_IMPORTED_MODULE_0__["SET_CURRENT_AIR_TRAVELS"]:
-      debugger;
       return Object.assign({}, state, {
         currentAirTravels: action.currentAirTravels
       });

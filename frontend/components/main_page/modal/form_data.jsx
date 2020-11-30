@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux'
+import FormDataLI from './form_data_line_item'
 import {
     updateAirTravel,
     createAirTravel,
@@ -10,11 +11,26 @@ import {
 import { openModal, closeModal } from "../../../actions/modal_actions";
 
 
-const FormData = (props) => (
 
-
-<div>THIS IS THE FORM MODAL</div>
-)
+const FormData = (props) => {
+    
+    const placeHolder = () => {
+        let placeHolder = [];
+        props.currentAirTravels.forEach(value => placeHolder.push(value));
+     
+        return placeHolder;
+    }
+    
+ return   <div>
+    <ul>
+        {
+            Object.values(placeHolder()).map(element => (
+                <div>test</div>
+            ))
+        }
+    </ul>
+</div>
+}
     
     
     
@@ -25,7 +41,7 @@ const FormData = (props) => (
 
 const mSTP = (state) => ({
     airTravels: Object.values(state.entities.airTravels), 
-    currentAirTravels: Object.values(state.entites.currentAirTravels)
+    currentAirTravels: Object.values(state.entities.currentAirTravels)
 });
 
 const mDTP = (dispatch) => ({

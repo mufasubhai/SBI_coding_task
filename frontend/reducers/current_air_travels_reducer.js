@@ -4,7 +4,7 @@ const currentAirTravelReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case SET_CURRENT_AIR_TRAVELS:
-      debugger
+  
       return Object.assign({}, state, {currentAirTravels: action.currentAirTravels})
     default:
       return state;
