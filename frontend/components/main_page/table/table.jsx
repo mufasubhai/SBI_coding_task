@@ -95,7 +95,6 @@ const Table = (props) => {
         if (sortedPass === 1) {
     
             monthNums = monthNums.sort((a, b) => (totalPassengers(a) - totalPassengers(b)))
-            console.log(monthNums)
             sortedPass = 2;
         } else if (sortedPass === 2) {
             monthNums = monthNums.sort((a, b) => (totalPassengers(b) - totalPassengers(a)))
@@ -109,7 +108,6 @@ const Table = (props) => {
 const sortAverageTicketPrice = () => {
      if (sortedSales === 1) {
             monthNums = monthNums.sort((a, b) => (totalSales(a) - totalSales(b)))
-            console.log(monthNums)
             sortedSales = 2;
         } else if (sortedSales === 2) {
             monthNums = monthNums.sort((a, b) => (totalSales(b) - totalSales(a)))
@@ -124,7 +122,7 @@ const sortAverageTicketPrice = () => {
 const sortAverageSales = () => {
      if (sortedPrice === 1) {
             monthNums = monthNums.sort((a, b) => (averagePrice(a) - averagePrice(b)))
-            console.log(monthNums)
+            
             sortedPrice = 2;
         } else if (sortedPrice === 2) {
             monthNums = monthNums.sort((a, b) => (averagePrice(b) - averagePrice(a)))
@@ -170,10 +168,10 @@ return (
                     monthNums.map(num => (<td key={num} className="passenger_count">{numberWithCommas(totalPassengers(num))}</td>))
                 }
             
-            <td>{numberWithCommas(passengerCountQuarter(1,2,3))}</td>    
-            <td>{numberWithCommas(passengerCountQuarter(4,5,6))}</td>    
-            <td>{numberWithCommas(passengerCountQuarter(7,8,9))}</td>    
-            <td>{numberWithCommas(passengerCountQuarter(10,11,12))}</td>    
+            <td className="total">{numberWithCommas(passengerCountQuarter(1,2,3))}</td>    
+            <td className="total">{numberWithCommas(passengerCountQuarter(4,5,6))}</td>    
+            <td className="total">{numberWithCommas(passengerCountQuarter(7,8,9))}</td>    
+            <td className="total">{numberWithCommas(passengerCountQuarter(10,11,12))}</td>    
         </tr>
         <tr>
             <th scope="row" onClick={()=> sortAverageSales()}>Total Sales</th>
@@ -181,10 +179,10 @@ return (
                 {
                     monthNums.map(num => (<td key={num} className="sales_total">${numberWithCommas(totalSales(num))}</td>))
                 }
-            <td>${numberWithCommas(totalSalesQuarter(1,2,3))}</td>    
-            <td>${numberWithCommas(totalSalesQuarter(4,5,6))}</td>    
-            <td>${numberWithCommas(totalSalesQuarter(7,8,9))}</td>    
-            <td>${numberWithCommas(totalSalesQuarter(10,11,12))}</td>    
+            <td className="total">${numberWithCommas(totalSalesQuarter(1,2,3))}</td>    
+            <td className="total">${numberWithCommas(totalSalesQuarter(4,5,6))}</td>    
+            <td className="total">${numberWithCommas(totalSalesQuarter(7,8,9))}</td>    
+            <td className="total">${numberWithCommas(totalSalesQuarter(10,11,12))}</td>    
            
 
         </tr>
@@ -194,10 +192,10 @@ return (
                 {
                     monthNums.map( num => (<td key={num} className="ticket_price">${averagePrice(num)}</td>))
                 }        
-            <td>${averagePriceQuarter(1,2,3)}</td>    
-            <td>${averagePriceQuarter(4,5,6)}</td>    
-            <td>${averagePriceQuarter(7,8,9)}</td>    
-            <td>${averagePriceQuarter(10,11,12)}</td>    
+            <td className="total">${averagePriceQuarter(1,2,3)}</td>    
+            <td className="total">${averagePriceQuarter(4,5,6)}</td>    
+            <td className="total">${averagePriceQuarter(7,8,9)}</td>    
+            <td className="total">${averagePriceQuarter(10,11,12)}</td>    
             
         </tr>
             

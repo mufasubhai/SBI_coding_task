@@ -271,14 +271,12 @@ __webpack_require__.r(__webpack_exports__);
 var OPEN_MODAL = "OPEN_MODAL";
 var CLOSE_MODAL = "CLOSE_MODAL";
 var openModal = function openModal(modal) {
-  console.log('modal_open');
   return {
     type: OPEN_MODAL,
     modal: modal
   };
 };
 var closeModal = function closeModal() {
-  console.log('close_modal');
   return {
     type: CLOSE_MODAL
   };
@@ -661,7 +659,6 @@ var Table = function Table(props) {
       monthNums = monthNums.sort(function (a, b) {
         return totalPassengers(a) - totalPassengers(b);
       });
-      console.log(monthNums);
       sortedPass = 2;
     } else if (sortedPass === 2) {
       monthNums = monthNums.sort(function (a, b) {
@@ -679,7 +676,6 @@ var Table = function Table(props) {
       monthNums = monthNums.sort(function (a, b) {
         return totalSales(a) - totalSales(b);
       });
-      console.log(monthNums);
       sortedSales = 2;
     } else if (sortedSales === 2) {
       monthNums = monthNums.sort(function (a, b) {
@@ -697,7 +693,6 @@ var Table = function Table(props) {
       monthNums = monthNums.sort(function (a, b) {
         return averagePrice(a) - averagePrice(b);
       });
-      console.log(monthNums);
       sortedPrice = 2;
     } else if (sortedPrice === 2) {
       monthNums = monthNums.sort(function (a, b) {
@@ -746,7 +741,15 @@ var Table = function Table(props) {
       key: num,
       className: "passenger_count"
     }, numberWithCommas(totalPassengers(num)));
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, numberWithCommas(passengerCountQuarter(1, 2, 3))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, numberWithCommas(passengerCountQuarter(4, 5, 6))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, numberWithCommas(passengerCountQuarter(7, 8, 9))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, numberWithCommas(passengerCountQuarter(10, 11, 12)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, numberWithCommas(passengerCountQuarter(1, 2, 3))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, numberWithCommas(passengerCountQuarter(4, 5, 6))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, numberWithCommas(passengerCountQuarter(7, 8, 9))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, numberWithCommas(passengerCountQuarter(10, 11, 12)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "row",
     onClick: function onClick() {
       return sortAverageSales();
@@ -756,7 +759,15 @@ var Table = function Table(props) {
       key: num,
       className: "sales_total"
     }, "$", numberWithCommas(totalSales(num)));
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", numberWithCommas(totalSalesQuarter(1, 2, 3))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", numberWithCommas(totalSalesQuarter(4, 5, 6))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", numberWithCommas(totalSalesQuarter(7, 8, 9))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", numberWithCommas(totalSalesQuarter(10, 11, 12)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, "$", numberWithCommas(totalSalesQuarter(1, 2, 3))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, "$", numberWithCommas(totalSalesQuarter(4, 5, 6))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, "$", numberWithCommas(totalSalesQuarter(7, 8, 9))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, "$", numberWithCommas(totalSalesQuarter(10, 11, 12)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "row",
     onClick: function onClick() {
       return sortAverageTicketPrice();
@@ -766,7 +777,15 @@ var Table = function Table(props) {
       key: num,
       className: "ticket_price"
     }, "$", averagePrice(num));
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", averagePriceQuarter(1, 2, 3)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", averagePriceQuarter(4, 5, 6)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", averagePriceQuarter(7, 8, 9)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "$", averagePriceQuarter(10, 11, 12)))));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, "$", averagePriceQuarter(1, 2, 3)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, "$", averagePriceQuarter(4, 5, 6)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, "$", averagePriceQuarter(7, 8, 9)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "total"
+  }, "$", averagePriceQuarter(10, 11, 12)))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Table);
