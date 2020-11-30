@@ -1,0 +1,189 @@
+.home_task_list {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #e8ecee;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px 0 rgba(21,27,38,.08);
+    overflow: hidden;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    line-height: normal;
+    width: 800px;
+    align-self: center;
+
+}
+
+.task_index_item {
+
+    border-top: 1px solid #e8ecee;
+    height: 34px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    overflow: visible;
+    padding-right: 10px;
+    padding-left: 5px;
+    position: relative;
+    transition: box-shadow 0s ease-in;
+    white-space: nowrap;
+    font-size: 12px;
+    text-align: left;
+}
+
+.task_index {
+    font-size: 13px;
+    text-align: left;
+}
+
+.col_1 {
+    width: 3%;
+}
+
+.col_2 {
+    width: 77%;
+}
+
+.col_3 {
+    width: 15%;
+
+}
+
+.col_4 {
+    width: 10%;
+    height: auto;
+    margin:2px;
+}
+
+.task_index_item:hover {
+    background-color: #e8ecee;
+}
+
+.home_index_title {
+    display: flex;
+    align-self: center;
+    padding-top: 65px;
+    padding-bottom: 15px;
+    width: 800px;
+    margin: 0 24px;
+  
+}
+
+#bottom_index_title {
+    border-bottom: 2px solid  #e8ecee;
+}
+
+.check_mark_small {
+    height: 15px;
+    width: 15px;
+    border: 2px solid  #e84c25;;
+    border-radius: 40px;
+    fill: #6f7782;
+}
+
+.check_mark_small:hover {
+    fill: #25e8c8;
+    background-color: #25e8c8;
+    border: 2px solid #25e8c8;
+    
+}
+
+.outer_checkmark_small :hover {
+    fill: #25e8c8;
+}
+
+.not-started {
+
+}
+.started {
+    fill: #d5e825;
+     background-color: #f5f263;
+    border:2px solid #fffd83;
+}
+
+.outer_checkmark_small {
+    height: 15px;
+    width: 15px;
+    fill: white;
+    z-index: 1;
+}
+
+.inner_checkmark_small {
+    fill: #6f7782;
+    z-index: 1;
+}
+
+.check_mark_button {
+    background-color: transparent;
+    border: none;
+    align-self: center;
+    width: 20px;
+    height:20px;
+    z-index: 1;
+}
+
+.check_mark_button:hover {
+    background-color: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+}
+
+.delete_button2 {
+ align-items: center;
+    border: 1px solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-shrink: 0;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: .2s;
+    transition-property: background,border,box-shadow,color,fill;
+    user-select: none;
+    background: #ff5263;
+    border-color: #ff5263;
+    color: #fff;
+    fill: #fff;
+    height: 28px;
+    width: 64px;
+
+
+}
+
+.edit_button:hover {
+  background: #1fbda2;
+    border-color: #1fbda2;
+    cursor: pointer;
+}
+.edit_button {
+ align-items: center;
+    border: 1px solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-shrink: 0;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: .2s;
+    transition-property: background,border,box-shadow,color,fill;
+    user-select: none;
+    background: #25e8c8;
+    border-color: #25e8c8;
+    color: #fff;
+    fill: #fff;
+    height: 28px;
+    width: 64px;
+    margin-left: 5px;
+
+
+}
+
+.delete_button2:hover {
+  background: #d84d5b;
+    border-color: #d84d5b;
+}
+
+.index_calendar {
+    font-weight: 400;
+}

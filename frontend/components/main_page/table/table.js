@@ -5,32 +5,68 @@ import TableLI from './table_li';
 let sortedPass = 1;
 let sortedPrice = 1;
 let sortedSales = 1;
-let currentArea = "All Areas"
+let areaIdx = 0;
+let airTravels;
+const allAreas = ["All Areas", "Area 1", "Area 2", "Area 3", "Area 4"]
+const currentArea = allAreas[areaIdx];
+const months = {
+    1:"January", 
+    2:"February",
+    3:"March",
+    4:"May",
+    5:"April",
+    6:"June",
+    7:"July",
+    8:"August",
+    9:"September",
+    10:"October",
+    11:"November",
+    12:"December",
+    }
 
 let monthNums = [1,2,3,4,5,6,7,8,9,10,11,12]
 
 const Table = (props) => {
-// let airTravel = props.airTravel.map(airTravel => (
+    airTravels = props.airTravels;
+    // let airTravel = props.airTravel.map(airTravel => (
+        
+        const modalOp = () => {
+            
+        }
 //     [airTravel.area_code, airTravel.month, airTravel.passengers]
 // ))
-    const filterArea = area => {
-        props.airTravels.filter(airTravel => (airTravel.area_code === area) ) 
-    };
+      const totalSales = (month) => {
+          
+          return airTravels.filter(airTravel => (airTravel.month === month))
+              .reduce((acc, airTravel) => (acc + airTravel.sales), 0)
+      };
+  
+      const totalPassengers = (month) => {
+          
+          return airTravels.filter(airTravel => (airTravel.month === month))
+              .reduce((acc, airTravel) => (acc + airTravel.passengers), 0)
+      };
+  
+      const averagePrice = (month) => {
+          
+          return (totalSales(month)/totalPassengers(month)).toFixed(2);
+      }
 
-    const totalSales = (month) => {
-        return props.airTravels.filter(airTravel => (airTravel.month === month))
-            .reduce((acc, airTravel) => (acc + airTravel.sales), 0)
-    };
 
-    const totalPassengers = (month) => {
-        return props.airTravels.filter(airTravel => (airTravel.month === month))
-            .reduce((acc, airTravel) => (acc + airTravel.passengers), 0)
-    };
 
-    const averagePrice = (month) => {
-        return (totalSales(month)/totalPassengers(month)).toFixed(2);
+
+    // filter area function
+    const filterAreas = () => {
+        areaIdx = (areaIdx + 1) % 4;
+        console.log(areaIdx)
+        
+        if (areaIdx === 0) {
+            airTravels = props.airTravels;
+        } else {
+            airTravels = props.airTravels.filter(airTravel => (airTravel.area_code === areaIdx+1))
+            
+        }
     }
-
     // sort functions
     const sortTotalPassengers = () => {
         if (sortedPass === 1) {
@@ -77,6 +113,7 @@ const sortAverageSales = () => {
     }
 
 
+
 return (
 
 
@@ -84,19 +121,14 @@ return (
     <table>
         <tbody>
         <tr>
-            <td></td>
-            <th scope="col">Month {monthNums[0]}</th>
-            <th scope="col">Month {monthNums[1]}</th>
-            <th scope="col">Month {monthNums[2]}</th>
-            <th scope="col">Month {monthNums[3]}</th>
-            <th scope="col">Month {monthNums[4]}</th>
-            <th scope="col">Month {monthNums[5]}</th>
-            <th scope="col">Month {monthNums[6]}</th>
-            <th scope="col">Month {monthNums[7]}</th>
-            <th scope="col">Month {monthNums[8]}</th>
-            <th scope="col">Month {monthNums[9]}</th>
-            <th scope="col">Month {monthNums[10]}</th>
-            <th scope="col">Month {monthNums[11]}</th>
+            <th className="area" onClick={() => filterAreas()}>{currentArea}</th>
+
+
+            {
+                monthNums.map(num => (<th scope="col" onClick={()=> props.openModal('edit_form_data')}>{months[monthNums[num-1]]}</th>))
+                
+            }
+
             <th scope="col">Q1</th>
             <th scope="col">Q2</th>
             <th scope="col">Q3</th>
@@ -110,27 +142,31 @@ return (
         </tr>
         <tr>
             <th className="sort_header" scope="row" onClick={() => sortTotalPassengers()}>Passenger Count</th>
-            {
-                monthNums.map(num => (<td className="passenger_count">{totalPassengers(num)}</td>))
-            }
+        
+                {
+                    monthNums.map(num => (<td key={num} className="passenger_count">{totalPassengers(num)}</td>))
+                }
+            
             
         </tr>
         <tr>
             <th scope="row" onClick={()=> sortAverageSales()}>Total Sales</th>
-              {
-                monthNums.map(num => (<td className="sales_total">{totalSales(num)}</td>))
-            }
+            
+                {
+                    monthNums.map(num => (<td key={num} className="sales_total">{totalSales(num)}</td>))
+                }
+            
 
         </tr>
         <tr>
             <th scope="row" onClick={()=> sortAverageTicketPrice()}>Average Ticket Price</th>
-            {
-                monthNums.map( num => (<td className="ticket_price">{averagePrice(num)}</td>))
-            }    
+            
+                {
+                    monthNums.map( num => (<td key={num} className="ticket_price">{averagePrice(num)}</td>))
+                }        
+            
             </tr>
-      {/* {
-        props.airTravels.map(airTravel => <TableLI airTravel={airTravel} key={airTravel.id}/>)
-        } */}
+     
         </tbody>
     </table>
     

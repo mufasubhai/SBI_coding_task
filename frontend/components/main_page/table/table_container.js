@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import Table from "./table"
 import {fetchAirTravels, fetchAirTravel, createAirTravel, updateAirTravel, deleteAirTravel } from '../../../actions/air_travel_actions'
+import {openModal} from '../../../actions/modal_actions'
 
 
 
@@ -15,8 +16,9 @@ const mDTP = dispatch => ({
     fetchAirTravel: (airTravelId) => dispatch(fetchAirTravel(airTravelId)),
     createAirTravel: (airTravel) => dispatch(createAirTravel(airTravel)),
     deleteAirTravel: (airTravelId) => dispatch(deleteAirTravel(airTravelId)),
-    updateAirTravel: (airTravelId) => dispatch(updateAirTravel(airTravelId))
-
+    updateAirTravel: (airTravelId) => dispatch(updateAirTravel(airTravelId)),
+    openModal: (modal) => dispatch(openModal(modal)),
+   
 });
 
 

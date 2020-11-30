@@ -98,7 +98,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _components_main_page_main_page_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/main_page/main_page_container */ "./components/main_page/main_page_container.js");
+/* harmony import */ var _components_main_page_modal_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/main_page/modal/modal */ "./components/main_page/modal/modal.js");
+/* harmony import */ var _components_main_page_main_page_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/main_page/main_page_container */ "./components/main_page/main_page_container.js");
+
 
 
 
@@ -107,10 +109,10 @@ __webpack_require__.r(__webpack_exports__);
 function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "App"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_main_page_modal_modal__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
-    component: _components_main_page_main_page_container__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _components_main_page_main_page_container__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     render: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
@@ -232,6 +234,37 @@ var deleteAirTravel = function deleteAirTravel(airTravelId) {
 
 /***/ }),
 
+/***/ "./actions/modal_actions.js":
+/*!**********************************!*\
+  !*** ./actions/modal_actions.js ***!
+  \**********************************/
+/*! exports provided: OPEN_MODAL, CLOSE_MODAL, openModal, closeModal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_MODAL", function() { return OPEN_MODAL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLOSE_MODAL", function() { return CLOSE_MODAL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openModal", function() { return openModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeModal", function() { return closeModal; });
+var OPEN_MODAL = "OPEN_MODAL";
+var CLOSE_MODAL = "CLOSE_MODAL";
+var openModal = function openModal(modal) {
+  console.log('modal_open');
+  return {
+    type: OPEN_MODAL,
+    modal: modal
+  };
+};
+var closeModal = function closeModal() {
+  console.log('close_modal');
+  return {
+    type: CLOSE_MODAL
+  };
+};
+
+/***/ }),
+
 /***/ "./components/main_page/main_page.js":
 /*!*******************************************!*\
   !*** ./components/main_page/main_page.js ***!
@@ -334,6 +367,130 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./components/main_page/modal/form_data.js":
+/*!*************************************************!*\
+  !*** ./components/main_page/modal/form_data.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/air_travel_actions */ "./actions/air_travel_actions.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/modal_actions */ "./actions/modal_actions.js");
+
+
+
+
+
+var FormData = function FormData(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "THIS IS THE FORM MODAL");
+};
+
+var mSTP = function mSTP(state) {
+  return {
+    airTravels: Object.values(state.entities.airTravels)
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])(modal));
+    },
+    closeModal: function closeModal() {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["closeModal"])());
+    },
+    updateAirTravel: function updateAirTravel(id) {
+      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_2__["updateAirTravel"])(id));
+    },
+    deleteAirTravel: function deleteAirTravel(id) {
+      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_2__["deleteAirTravel"])(id));
+    },
+    fetchAirTravel: function fetchAirTravel(id) {
+      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_2__["fetchAirTravel"])(id));
+    },
+    createAirTravel: function createAirTravel(airTravel) {
+      return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_2__["createAirTravel"])(airTravel));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(FormData));
+
+/***/ }),
+
+/***/ "./components/main_page/modal/modal.js":
+/*!*********************************************!*\
+  !*** ./components/main_page/modal/modal.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_modal_actions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../actions/modal_actions.js */ "./actions/modal_actions.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _form_data_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./form_data.js */ "./components/main_page/modal/form_data.js");
+
+
+
+
+
+function Modal(_ref) {
+  var modal = _ref.modal,
+      closeModal = _ref.closeModal;
+
+  if (!modal) {
+    return null;
+  }
+
+  var component;
+  console.log('edit_form_data');
+
+  switch (modal) {
+    case 'edit_form_data':
+      component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_form_data_js__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+      break;
+
+    default:
+      return null;
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal_background",
+    onClick: closeModal
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal_child",
+    onClick: function onClick(e) {
+      return e.stopPropagation();
+    }
+  }, component));
+}
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    modal: state.ui.modal
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    closeModal: function closeModal() {
+      return dispatch(Object(_actions_modal_actions_js__WEBPACK_IMPORTED_MODULE_1__["closeModal"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Modal));
+
+/***/ }),
+
 /***/ "./components/main_page/table/table.js":
 /*!*********************************************!*\
   !*** ./components/main_page/table/table.js ***!
@@ -351,21 +508,35 @@ __webpack_require__.r(__webpack_exports__);
 var sortedPass = 1;
 var sortedPrice = 1;
 var sortedSales = 1;
-var currentArea = "All Areas";
+var areaIdx = 0;
+var airTravels;
+var allAreas = ["All Areas", "Area 1", "Area 2", "Area 3", "Area 4"];
+var currentArea = allAreas[areaIdx];
+var months = {
+  1: "January",
+  2: "February",
+  3: "March",
+  4: "May",
+  5: "April",
+  6: "June",
+  7: "July",
+  8: "August",
+  9: "September",
+  10: "October",
+  11: "November",
+  12: "December"
+};
 var monthNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 var Table = function Table(props) {
-  // let airTravel = props.airTravel.map(airTravel => (
-  //     [airTravel.area_code, airTravel.month, airTravel.passengers]
+  airTravels = props.airTravels; // let airTravel = props.airTravel.map(airTravel => (
+
+  var modalOp = function modalOp() {}; //     [airTravel.area_code, airTravel.month, airTravel.passengers]
   // ))
-  var filterArea = function filterArea(area) {
-    props.airTravels.filter(function (airTravel) {
-      return airTravel.area_code === area;
-    });
-  };
+
 
   var totalSales = function totalSales(month) {
-    return props.airTravels.filter(function (airTravel) {
+    return airTravels.filter(function (airTravel) {
       return airTravel.month === month;
     }).reduce(function (acc, airTravel) {
       return acc + airTravel.sales;
@@ -373,7 +544,7 @@ var Table = function Table(props) {
   };
 
   var totalPassengers = function totalPassengers(month) {
-    return props.airTravels.filter(function (airTravel) {
+    return airTravels.filter(function (airTravel) {
       return airTravel.month === month;
     }).reduce(function (acc, airTravel) {
       return acc + airTravel.passengers;
@@ -382,6 +553,20 @@ var Table = function Table(props) {
 
   var averagePrice = function averagePrice(month) {
     return (totalSales(month) / totalPassengers(month)).toFixed(2);
+  }; // filter area function
+
+
+  var filterAreas = function filterAreas() {
+    areaIdx = (areaIdx + 1) % 4;
+    console.log(areaIdx);
+
+    if (areaIdx === 0) {
+      airTravels = props.airTravels;
+    } else {
+      airTravels = props.airTravels.filter(function (airTravel) {
+        return airTravel.area_code === areaIdx + 1;
+      });
+    }
   }; // sort functions
 
 
@@ -439,31 +624,19 @@ var Table = function Table(props) {
     }
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[2]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[3]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[4]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[5]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[6]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[7]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[8]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[9]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[10]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "col"
-  }, "Month ", monthNums[11]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    className: "area",
+    onClick: function onClick() {
+      return filterAreas();
+    }
+  }, currentArea), monthNums.map(function (num) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+      scope: "col",
+      onClick: function onClick() {
+        return props.openModal('edit_form_data');
+      }
+    }, months[monthNums[num - 1]]);
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
   }, "Q1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
     scope: "col"
@@ -479,6 +652,7 @@ var Table = function Table(props) {
     }
   }, "Passenger Count"), monthNums.map(function (num) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      key: num,
       className: "passenger_count"
     }, totalPassengers(num));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
@@ -488,6 +662,7 @@ var Table = function Table(props) {
     }
   }, "Total Sales"), monthNums.map(function (num) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      key: num,
       className: "sales_total"
     }, totalSales(num));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
@@ -497,6 +672,7 @@ var Table = function Table(props) {
     }
   }, "Average Ticket Price"), monthNums.map(function (num) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      key: num,
       className: "ticket_price"
     }, averagePrice(num));
   })))));
@@ -520,6 +696,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./table */ "./components/main_page/table/table.js");
 /* harmony import */ var _actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/air_travel_actions */ "./actions/air_travel_actions.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../actions/modal_actions */ "./actions/modal_actions.js");
+
 
 
 
@@ -547,6 +725,9 @@ var mDTP = function mDTP(dispatch) {
     },
     updateAirTravel: function updateAirTravel(airTravelId) {
       return dispatch(Object(_actions_air_travel_actions__WEBPACK_IMPORTED_MODULE_3__["updateAirTravel"])(airTravelId));
+    },
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])(modal));
     }
   };
 };
@@ -48273,6 +48454,36 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
 
 /***/ }),
 
+/***/ "./reducers/modal_reducer.js":
+/*!***********************************!*\
+  !*** ./reducers/modal_reducer.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return modalReducer; });
+/* harmony import */ var _actions_modal_actions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/modal_actions.js */ "./actions/modal_actions.js");
+
+function modalReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_modal_actions_js__WEBPACK_IMPORTED_MODULE_0__["OPEN_MODAL"]:
+      return action.modal;
+
+    case _actions_modal_actions_js__WEBPACK_IMPORTED_MODULE_0__["CLOSE_MODAL"]:
+      return null;
+
+    default:
+      return state;
+  }
+}
+
+/***/ }),
+
 /***/ "./reducers/root_reducer.js":
 /*!**********************************!*\
   !*** ./reducers/root_reducer.js ***!
@@ -48285,14 +48496,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _entities_reducer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./entities_reducer.js */ "./reducers/entities_reducer.js");
 /* harmony import */ var _errors_reducer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errors_reducer.js */ "./reducers/errors_reducer.js");
+/* harmony import */ var _ui_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ui_reducer */ "./reducers/ui_reducer.js");
+
 
 
 
 var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   entities: _entities_reducer_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  errors: _errors_reducer_js__WEBPACK_IMPORTED_MODULE_2__["default"]
+  errors: _errors_reducer_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+  ui: _ui_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
+
+/***/ }),
+
+/***/ "./reducers/ui_reducer.js":
+/*!********************************!*\
+  !*** ./reducers/ui_reducer.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _modal_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal_reducer */ "./reducers/modal_reducer.js");
+
+
+var UIReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+});
+/* harmony default export */ __webpack_exports__["default"] = (UIReducer);
 
 /***/ }),
 
