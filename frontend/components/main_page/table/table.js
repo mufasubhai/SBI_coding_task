@@ -1,48 +1,81 @@
 
 import React, {useState, useEffect} from 'react';
 import TableLI from './table_li';
-let sorted = 1;
+
+let sortedPass = 1;
+let sortedPrice = 1;
+let sortedSales = 1;
+let currentArea = "All Areas"
+
 let monthNums = [1,2,3,4,5,6,7,8,9,10,11,12]
 
 const Table = (props) => {
 // let airTravel = props.airTravel.map(airTravel => (
 //     [airTravel.area_code, airTravel.month, airTravel.passengers]
 // ))
-const filterArea = area => {
-      props.airTravels.filter(airTravel => (airTravel.area_code === area) ) 
-};
+    const filterArea = area => {
+        props.airTravels.filter(airTravel => (airTravel.area_code === area) ) 
+    };
 
-const totalSales = (month) => {
-    return props.airTravels.filter(airTravel => (airTravel.month === month))
-         .reduce((acc, airTravel) => (acc + airTravel.sales), 0)
-};
+    const totalSales = (month) => {
+        return props.airTravels.filter(airTravel => (airTravel.month === month))
+            .reduce((acc, airTravel) => (acc + airTravel.sales), 0)
+    };
 
-const totalPassengers = (month) => {
-    return props.airTravels.filter(airTravel => (airTravel.month === month))
-        .reduce((acc, airTravel) => (acc + airTravel.passengers), 0)
-};
+    const totalPassengers = (month) => {
+        return props.airTravels.filter(airTravel => (airTravel.month === month))
+            .reduce((acc, airTravel) => (acc + airTravel.passengers), 0)
+    };
 
-const averagePrice = (month) => {
-    return (totalSales(month)/totalPassengers(month)).toFixed(2);
-}
-
-
-const sortTotalPassengers = () => {
-
-    
-    if (sorted === 1) {
-        
-        monthNums = monthNums.sort((a, b) => (totalPassengers(a) - totalPassengers(b)))
-        console.log(monthNums)
-        sorted = 2;
-    } else if (sorted === 2) {
-        monthNums = monthNums.sort((a, b) => (totalPassengers(b) - totalPassengers(a)))
-        sorted = 3;
-    } else {
-        monthNums = [1,2,3,4,5,6,7,8,9,10,11,12];
-        sorted = 1;
+    const averagePrice = (month) => {
+        return (totalSales(month)/totalPassengers(month)).toFixed(2);
     }
-}
+
+    // sort functions
+    const sortTotalPassengers = () => {
+        if (sortedPass === 1) {
+    
+            monthNums = monthNums.sort((a, b) => (totalPassengers(a) - totalPassengers(b)))
+            console.log(monthNums)
+            sortedPass = 2;
+        } else if (sortedPass === 2) {
+            monthNums = monthNums.sort((a, b) => (totalPassengers(b) - totalPassengers(a)))
+            sortedPass = 3;
+        } else {
+            monthNums = [1,2,3,4,5,6,7,8,9,10,11,12];
+            sortedPass = 1;
+        }
+    }
+
+const sortAverageTicketPrice = () => {
+     if (sortedSales === 1) {
+            monthNums = monthNums.sort((a, b) => (totalSales(a) - totalSales(b)))
+            console.log(monthNums)
+            sortedSales = 2;
+        } else if (sortedSales === 2) {
+            monthNums = monthNums.sort((a, b) => (totalSales(b) - totalSales(a)))
+            sortedSales = 3;
+        } else {
+            monthNums = [1,2,3,4,5,6,7,8,9,10,11,12];
+            sortedSales = 1;
+        }
+    }
+
+
+const sortAverageSales = () => {
+     if (sortedPrice === 1) {
+            monthNums = monthNums.sort((a, b) => (averagePrice(a) - averagePrice(b)))
+            console.log(monthNums)
+            sortedPrice = 2;
+        } else if (sortedPrice === 2) {
+            monthNums = monthNums.sort((a, b) => (averagePrice(b) - averagePrice(a)))
+            sortedPrice = 3;
+        } else {
+            monthNums = [1,2,3,4,5,6,7,8,9,10,11,12];
+            sortedPrice = 1;
+        }
+    }
+
 
 return (
 
@@ -83,14 +116,14 @@ return (
             
         </tr>
         <tr>
-            <th scope="row">Total Sales</th>
+            <th scope="row" onClick={()=> sortAverageSales()}>Total Sales</th>
               {
                 monthNums.map(num => (<td className="sales_total">{totalSales(num)}</td>))
             }
 
         </tr>
         <tr>
-            <th scope="row">Average Ticket Price</th>
+            <th scope="row" onClick={()=> sortAverageTicketPrice()}>Average Ticket Price</th>
             {
                 monthNums.map( num => (<td className="ticket_price">{averagePrice(num)}</td>))
             }    

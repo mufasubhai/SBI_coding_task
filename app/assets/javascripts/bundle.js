@@ -348,7 +348,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _table_li__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./table_li */ "./components/main_page/table/table_li.js");
 
 
-var sorted = 1;
+var sortedPass = 1;
+var sortedPrice = 1;
+var sortedSales = 1;
+var currentArea = "All Areas";
 var monthNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 var Table = function Table(props) {
@@ -379,23 +382,60 @@ var Table = function Table(props) {
 
   var averagePrice = function averagePrice(month) {
     return (totalSales(month) / totalPassengers(month)).toFixed(2);
-  };
+  }; // sort functions
+
 
   var sortTotalPassengers = function sortTotalPassengers() {
-    if (sorted === 1) {
+    if (sortedPass === 1) {
       monthNums = monthNums.sort(function (a, b) {
         return totalPassengers(a) - totalPassengers(b);
       });
       console.log(monthNums);
-      sorted = 2;
-    } else if (sorted === 2) {
+      sortedPass = 2;
+    } else if (sortedPass === 2) {
       monthNums = monthNums.sort(function (a, b) {
         return totalPassengers(b) - totalPassengers(a);
       });
-      sorted = 3;
+      sortedPass = 3;
     } else {
       monthNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-      sorted = 1;
+      sortedPass = 1;
+    }
+  };
+
+  var sortAverageTicketPrice = function sortAverageTicketPrice() {
+    if (sortedSales === 1) {
+      monthNums = monthNums.sort(function (a, b) {
+        return totalSales(a) - totalSales(b);
+      });
+      console.log(monthNums);
+      sortedSales = 2;
+    } else if (sortedSales === 2) {
+      monthNums = monthNums.sort(function (a, b) {
+        return totalSales(b) - totalSales(a);
+      });
+      sortedSales = 3;
+    } else {
+      monthNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+      sortedSales = 1;
+    }
+  };
+
+  var sortAverageSales = function sortAverageSales() {
+    if (sortedPrice === 1) {
+      monthNums = monthNums.sort(function (a, b) {
+        return averagePrice(a) - averagePrice(b);
+      });
+      console.log(monthNums);
+      sortedPrice = 2;
+    } else if (sortedPrice === 2) {
+      monthNums = monthNums.sort(function (a, b) {
+        return averagePrice(b) - averagePrice(a);
+      });
+      sortedPrice = 3;
+    } else {
+      monthNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+      sortedPrice = 1;
     }
   };
 
@@ -442,13 +482,19 @@ var Table = function Table(props) {
       className: "passenger_count"
     }, totalPassengers(num));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "row"
+    scope: "row",
+    onClick: function onClick() {
+      return sortAverageSales();
+    }
   }, "Total Sales"), monthNums.map(function (num) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "sales_total"
     }, totalSales(num));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-    scope: "row"
+    scope: "row",
+    onClick: function onClick() {
+      return sortAverageTicketPrice();
+    }
   }, "Average Ticket Price"), monthNums.map(function (num) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "ticket_price"
