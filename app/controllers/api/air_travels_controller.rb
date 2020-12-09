@@ -27,7 +27,7 @@ class Api::AirTravelsController < ApplicationController
         if @air_travel.update(air_travel_params)
 
         else
-            render json: @project.errors.full_messages, status: 422
+            render json: @air_travel.errors.full_messages, status: 422
         end
 
     end
