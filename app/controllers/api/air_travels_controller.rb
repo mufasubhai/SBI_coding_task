@@ -38,7 +38,7 @@ class Api::AirTravelsController < ApplicationController
         if @air_travel.destroy
             render :show
         else
-            render json: @comment.errors.full_messages, status: 422
+            render json: @air_travel.errors.full_messages, status: 422
         end
 
     end
